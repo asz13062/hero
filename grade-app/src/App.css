@@ -1,0 +1,875 @@
+/* =========================
+   관리자 전체 페이지
+========================= */
+
+.admin-page {
+  min-height: 100vh;
+  margin: 0;
+  padding: 50px 20px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      #dbeafe 0,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      #ede9fe 0,
+      transparent 30%
+    ),
+    #f8fafc;
+
+  font-family:
+    "Pretendard",
+    "Noto Sans KR",
+    Arial,
+    sans-serif;
+
+  color: #1e293b;
+}
+
+
+/* =========================
+   관리자 제목
+========================= */
+
+.admin-page > h1 {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto 30px;
+
+  color: #172554;
+
+  font-size: 34px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   관리자 입력 영역
+========================= */
+
+.admin-section {
+  width: 100%;
+  max-width: 900px;
+
+  box-sizing: border-box;
+
+  margin: 0 auto 28px;
+  padding: 28px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(30, 64, 175, 0.07);
+}
+
+
+.admin-section h2 {
+  margin: 0 0 22px;
+
+  color: #334155;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   입력 폼
+========================= */
+
+.point-form {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 14px;
+}
+
+
+.point-form label {
+  width: 110px;
+
+  color: #475569;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+.point-form select,
+.point-form input {
+  flex: 1;
+
+  height: 44px;
+
+  box-sizing: border-box;
+
+  padding: 0 13px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #f8fafc;
+
+  color: #334155;
+
+  font-family:
+    "Pretendard",
+    "Noto Sans KR",
+    Arial,
+    sans-serif;
+
+  font-size: 13px;
+
+  transition: all 0.2s;
+}
+
+
+.point-form select:focus,
+.point-form input:focus {
+  border-color: #93c5fd;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+
+.point-form input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* =========================
+   포인트 반영 버튼
+========================= */
+
+.point-button {
+  width: 100%;
+
+  height: 46px;
+
+  margin-top: 8px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 16px rgba(37, 99, 235, 0.2);
+
+  transition: all 0.2s;
+}
+
+
+.point-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.28);
+}
+
+
+.point-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================
+   결과 메시지
+========================= */
+
+.result-message {
+  margin: 14px 0 0;
+
+  padding: 11px 13px;
+
+  border-radius: 9px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+
+/* =========================
+   사용자 목록 영역
+========================= */
+
+.admin-page > section:last-child {
+  width: 100%;
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+
+.admin-page > section:last-child > h2 {
+  margin: 0 0 14px;
+
+  color: #334155;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   사용자 카드
+========================= */
+
+.user-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  width: 100%;
+
+  margin-bottom: 10px;
+  padding: 17px 20px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 13px;
+
+  box-shadow:
+    0 5px 15px rgba(30, 64, 175, 0.04);
+
+  transition: all 0.2s;
+}
+
+
+.user-item:hover {
+  transform: translateY(-2px);
+
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 8px 22px rgba(37, 99, 235, 0.09);
+}
+
+
+.user-item span {
+  display: flex;
+  align-items: center;
+
+  color: #334155;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+.user-item span::before {
+  content: "";
+
+  width: 38px;
+  height: 38px;
+
+  display: inline-flex;
+
+  margin-right: 11px;
+
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  box-shadow:
+    0 4px 10px rgba(37, 99, 235, 0.15);
+}
+
+
+.user-item strong {
+  color: #2563eb;
+
+  font-size: 16px;
+}
+
+
+/* =========================
+   사용자 수
+========================= */
+
+.user-count {
+  margin: 12px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+
+  text-align: right;
+}
+
+
+/* =========================
+   버튼 영역
+========================= */
+
+.button-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 25px 0;
+}
+
+
+.button-area button {
+  min-width: 120px;
+
+  padding: 11px 20px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s;
+}
+
+
+/* 그래프 보기 버튼 */
+
+.button-area button:first-child {
+  border: none;
+
+  background: #2563eb;
+
+  color: white;
+
+  box-shadow:
+    0 7px 16px rgba(37, 99, 235, 0.2);
+}
+
+
+.button-area button:first-child:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.28);
+}
+
+
+/* 로그아웃 버튼 */
+
+.button-area button:last-child {
+  border: 1px solid #e2e8f0;
+
+  background: white;
+
+  color: #64748b;
+}
+
+
+.button-area button:last-child:hover {
+  color: #ef4444;
+
+  border-color: #fecaca;
+
+  background: #fffafa;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   그래프 영역
+========================= */
+
+.graph-area {
+  box-sizing: border-box;
+
+  width: 100%;
+
+  padding: 28px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(30, 64, 175, 0.07);
+
+  animation: graphOpen 0.3s ease;
+}
+
+
+@keyframes graphOpen {
+  from {
+    opacity: 0;
+
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+.graph-area h2 {
+  margin: 0 0 28px;
+
+  color: #1e293b;
+
+  font-size: 21px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   그래프 한 줄
+========================= */
+
+.graph-row {
+  display: grid;
+
+  grid-template-columns: 110px 1fr 90px;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 22px;
+}
+
+
+.graph-row:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 사용자 이름 */
+
+.graph-name {
+  color: #475569;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   그래프 배경
+========================= */
+
+.graph-background {
+  width: 100%;
+  height: 10px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #e2e8f0;
+}
+
+
+/* =========================
+   실제 그래프
+========================= */
+
+.graph-bar {
+  height: 100%;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #6366f1
+  );
+
+  box-shadow:
+    0 2px 7px rgba(37, 99, 235, 0.25);
+
+  transition: width 0.5s ease;
+}
+
+
+/* 그래프 포인트 */
+
+.graph-row strong {
+  color: #2563eb;
+
+  font-size: 13px;
+
+  text-align: right;
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 600px) {
+
+  .admin-page {
+    padding: 30px 15px;
+  }
+
+
+  .admin-page > h1 {
+    margin-bottom: 22px;
+
+    font-size: 28px;
+  }
+
+
+  .admin-section {
+    padding: 20px 16px;
+
+    border-radius: 15px;
+  }
+
+
+  .admin-section h2 {
+    font-size: 18px;
+  }
+
+
+  /* 입력 폼 세로 배치 */
+
+  .point-form {
+    display: block;
+
+    margin-bottom: 15px;
+  }
+
+
+  .point-form label {
+    display: block;
+
+    width: auto;
+
+    margin-bottom: 7px;
+  }
+
+
+  .point-form select,
+  .point-form input {
+    width: 100%;
+  }
+
+
+  /* 사용자 카드 */
+
+  .user-item {
+    padding: 14px 15px;
+  }
+
+
+  .user-item span::before {
+    width: 34px;
+    height: 34px;
+  }
+
+
+  .user-item strong {
+    font-size: 14px;
+  }
+
+
+  /* 버튼 */
+
+  .button-area {
+    gap: 8px;
+
+    margin: 20px 0;
+  }
+
+
+  .button-area button {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 11px 10px;
+  }
+
+
+  /* 그래프 */
+
+  .graph-area {
+    padding: 20px 15px;
+  }
+
+
+  .graph-area h2 {
+    margin-bottom: 22px;
+
+    font-size: 18px;
+  }
+
+
+  .graph-row {
+    grid-template-columns: 75px 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+  }
+
+
+  .graph-name {
+    font-size: 12px;
+  }
+
+
+  .graph-row strong {
+    grid-column: 2;
+
+    margin-top: -5px;
+
+    text-align: left;
+
+    font-size: 12px;
+  }
+}
+
+
+/* =========================
+   아주 작은 화면
+========================= */
+
+@media (max-width: 380px) {
+
+  .admin-page {
+    padding: 25px 12px;
+  }
+
+
+  .admin-page > h1 {
+    font-size: 25px;
+  }
+
+
+  .user-item {
+    padding: 13px;
+  }
+
+
+  .user-item span::before {
+    width: 30px;
+    height: 30px;
+
+    margin-right: 8px;
+  }
+
+
+  .user-item span {
+    font-size: 13px;
+  }
+
+
+  .user-item strong {
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   사용자 선택 / 포인트 입력
+   ========================= */
+
+.point-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.point-form label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+/* 사용자 선택 / 처리 유형 */
+.point-form select {
+    width: calc(100% - 20px);
+    height: 46px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    background-color: #ffffff;
+    color: #111827;
+
+    font-size: 15px;
+
+    outline: none;
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* 포인트 입력 */
+.point-form input {
+    width: calc(100% - 20px);
+    height: 46px;
+
+    padding: 0 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    background-color: #ffffff;
+    color: #111827;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* 클릭했을 때 */
+.point-form select:focus,
+.point-form input:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* placeholder */
+.point-form input::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================
+   포인트 반영 버튼
+   ========================= */
+
+.apply-button {
+    width: calc(100% - 20px);
+    height: 48px;
+
+    margin-top: 4px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #4f46e5
+    );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px rgba(79, 70, 229, 0.25);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+.apply-button:hover {
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #4338ca
+    );
+
+    box-shadow:
+        0 6px 14px rgba(79, 70, 229, 0.3);
+
+    transform: translateY(-1px);
+}
+
+.apply-button:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 3px 7px rgba(79, 70, 229, 0.2);
+}
+
+.history-name {
+  font-weight: bold;
+  color : rgb(22, 22, 22);
+}
+
+
+/* =========================
+   결과 메시지
+   ========================= */
+
+.result-message {
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+
+    margin: 14px 0 0;
+
+    padding: 11px 14px;
+
+    border-radius: 8px;
+
+    background-color: #f0fdf4;
+    color: #15803d;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-align: center;
+}

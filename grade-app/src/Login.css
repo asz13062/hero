@@ -1,0 +1,347 @@
+/* 전체 로그인 페이지 */
+.login-page {
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 20px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      #dbeafe 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      #e0e7ff 0%,
+      transparent 35%
+    ),
+    #f8fafc;
+
+  font-family:
+    "Pretendard",
+    "Noto Sans KR",
+    Arial,
+    sans-serif;
+}
+
+
+/* 로그인 카드 */
+.login-card {
+  width: 100%;
+  max-width: 430px;
+
+  padding: 42px;
+
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 50px rgba(30, 64, 175, 0.12);
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* 로그인 상단 */
+.login-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+
+/* 로고 */
+.logo {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: white;
+
+  font-size: 28px;
+  font-weight: 800;
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+/* 제목 */
+.login-header h1 {
+  margin: 0;
+
+  color: #172554;
+
+  font-size: 28px;
+  font-weight: 750;
+}
+
+
+/* 설명 */
+.login-header p {
+  margin: 9px 0 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+
+/* 로그인 폼 */
+.login-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+
+/* 입력 그룹 */
+.input-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+/* 입력창 제목 */
+.input-group label {
+  color: #334155;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+/* 입력창 */
+.input-group input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 15px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #f8fafc;
+
+  color: #1e293b;
+
+  font-size: 14px;
+
+  transition: 0.2s;
+}
+
+
+/* 입력창 클릭 */
+.input-group input:focus {
+  border-color: #2563eb;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* placeholder */
+.input-group input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* 에러 메시지 */
+.error-message {
+  margin: -4px 0 0;
+
+  color: #dc2626;
+
+  font-size: 13px;
+}
+
+
+/* 로그인 버튼 */
+.login-button {
+  width: 100%;
+
+  margin-top: 3px;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: white;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 15px rgba(37, 99, 235, 0.2);
+
+  transition: all 0.2s;
+}
+
+
+/* 버튼 hover */
+.login-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 20px rgba(37, 99, 235, 0.28);
+}
+
+
+/* 버튼 클릭 */
+.login-button:active {
+  transform: translateY(0);
+}
+
+
+/* 테스트 계정 영역 */
+.test-account {
+  margin-top: 30px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+
+/* 테스트 계정 제목 */
+.test-title {
+  margin: 0 0 14px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+
+/* 계정 하나 */
+.account {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px;
+
+  margin-bottom: 10px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  background: #f8fafc;
+}
+
+
+/* 마지막 계정 */
+.account:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 계정 뱃지 */
+.account-badge {
+  min-width: 48px;
+
+  padding: 5px 7px;
+
+  border-radius: 6px;
+
+  text-align: center;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+/* 일반 사용자 뱃지 */
+.user-badge {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+
+/* 관리자 뱃지 */
+.admin-badge {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+
+/* 계정 이름 */
+.account strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #334155;
+
+  font-size: 13px;
+}
+
+
+/* 계정 정보 */
+.account p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+
+/* 모바일 */
+@media (max-width: 480px) {
+  .login-page {
+    padding: 20px;
+  }
+
+  .login-card {
+    padding: 30px 24px;
+  }
+
+  .login-header h1 {
+    font-size: 24px;
+  }
+}

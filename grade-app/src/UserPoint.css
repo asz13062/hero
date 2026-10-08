@@ -1,0 +1,692 @@
+.user-point-page {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 45px 20px;
+
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      #dbeafe,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      #ede9fe,
+      transparent 35%
+    ),
+    #f8fafc;
+
+  font-family:
+    "Pretendard",
+    "Noto Sans KR",
+    Arial,
+    sans-serif;
+
+  color: #1e293b;
+}
+
+
+.user-point-card {
+  width: 100%;
+  max-width: 500px;
+
+  padding: 35px;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 50px
+    rgba(30, 64, 175, 0.1);
+}
+
+
+/* =========================
+   헤더
+========================= */
+
+.user-point-header {
+  text-align: center;
+
+  margin-bottom: 25px;
+}
+
+
+.user-logo {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto 13px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #6366f1
+    );
+
+  color: white;
+
+  font-size: 25px;
+  font-weight: 800;
+}
+
+
+.user-point-header h1 {
+  margin: 0;
+
+  color: #172554;
+
+  font-size: 27px;
+}
+
+
+.user-point-header p {
+  margin: 8px 0 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   현재 포인트
+========================= */
+
+.current-point {
+  padding: 20px;
+
+  margin-bottom: 25px;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  background: #eff6ff;
+
+  border: 1px solid #dbeafe;
+}
+
+
+.current-point span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+.current-point strong {
+  color: #2563eb;
+
+  font-size: 32px;
+}
+
+
+.current-point small {
+  font-size: 16px;
+}
+
+
+/* =========================
+   게임
+========================= */
+
+.game-section {
+  padding: 25px 18px;
+
+  border-radius: 20px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+
+  text-align: center;
+}
+
+
+.game-section h2 {
+  margin: 0;
+
+  color: #334155;
+
+  font-size: 21px;
+}
+
+
+.game-description {
+  margin: 8px 0 22px;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   숫자
+========================= */
+
+.number-display {
+  width: 145px;
+  height: 145px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #6366f1
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(37, 99, 235, 0.25);
+
+  border: 7px solid white;
+
+  outline: 1px solid #dbeafe;
+}
+
+
+.result-number,
+.rolling-number {
+  color: white;
+
+  font-size: 55px;
+
+  font-weight: 900;
+}
+
+
+.rolling-number {
+  animation: numberShake 0.25s
+    infinite alternate;
+}
+
+
+@keyframes numberShake {
+
+  from {
+    transform: translateY(-4px);
+  }
+
+  to {
+    transform: translateY(4px);
+  }
+
+}
+
+
+/* =========================
+   결과
+========================= */
+
+.game-result {
+  padding: 17px;
+
+  margin-bottom: 20px;
+
+  border-radius: 14px;
+
+  animation: resultShow 0.3s ease;
+}
+
+
+@keyframes resultShow {
+
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+.game-result.win {
+  background: #ecfdf5;
+
+  border: 1px solid #a7f3d0;
+}
+
+
+.game-result.lose {
+  background: #fff1f2;
+
+  border: 1px solid #fecdd3;
+}
+
+
+.result-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+.game-result strong {
+  display: block;
+
+  color: #2563eb;
+
+  font-size: 35px;
+
+  line-height: 1.1;
+}
+
+
+.game-result > span:not(.result-label) {
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+.game-result p {
+  margin: 8px 0 0;
+
+  color: #2563eb;
+
+  font-size: 18px;
+
+  font-weight: 800;
+}
+
+
+.game-result.lose p {
+  color: #ef4444;
+}
+
+
+/* =========================
+   베팅
+========================= */
+
+.bet-area {
+  margin-top: 5px;
+
+  text-align: left;
+}
+
+
+.bet-area label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #475569;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.bet-input-area {
+  position: relative;
+}
+
+
+.bet-input-area input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 13px 45px 13px 15px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: white;
+
+  color: #1e293b;
+
+  font-size: 16px;
+}
+
+
+.bet-input-area input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(37, 99, 235, 0.1);
+}
+
+
+.bet-input-area span {
+  position: absolute;
+
+  right: 15px;
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   홀짝 선택
+========================= */
+
+.choice-area {
+  margin-top: 20px;
+
+  text-align: left;
+}
+
+
+.choice-area > p {
+  margin: 0 0 8px;
+
+  color: #475569;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+.choice-buttons {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 10px;
+}
+
+
+.choice-button {
+  min-height: 85px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 5px;
+
+  border-radius: 13px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+
+  background: white;
+}
+
+
+.choice-button span {
+  font-size: 11px;
+
+  color: #94a3b8;
+}
+
+
+.choice-button strong {
+  font-size: 23px;
+}
+
+
+.choice-button.odd {
+  border: 2px solid #bfdbfe;
+
+  color: #2563eb;
+}
+
+
+.choice-button.even {
+  border: 2px solid #ddd6fe;
+
+  color: #7c3aed;
+}
+
+
+.choice-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+
+.choice-button.selected.odd {
+  background: #eff6ff;
+
+  border-color: #2563eb;
+
+  box-shadow:
+    0 5px 15px
+    rgba(37, 99, 235, 0.15);
+}
+
+
+.choice-button.selected.even {
+  background: #f5f3ff;
+
+  border-color: #7c3aed;
+
+  box-shadow:
+    0 5px 15px
+    rgba(124, 58, 237, 0.15);
+}
+
+
+.choice-button:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.6;
+}
+
+
+/* =========================
+   게임 시작
+========================= */
+
+.play-button {
+  width: 100%;
+
+  margin-top: 17px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #6366f1
+    );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 18px
+    rgba(37, 99, 235, 0.22);
+
+  transition: 0.2s;
+}
+
+
+.play-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 11px 23px
+    rgba(37, 99, 235, 0.3);
+}
+
+
+.play-button:disabled {
+  opacity: 0.65;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   게임 설명
+========================= */
+
+.game-info {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+
+.game-info div {
+  padding: 10px;
+
+  border-radius: 9px;
+
+  background: white;
+
+  border: 1px solid #e2e8f0;
+}
+
+
+.game-info span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+
+.game-info strong {
+  color: #475569;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   로그아웃
+========================= */
+
+.user-logout-button {
+  width: 100%;
+
+  margin-top: 25px;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #f1f5f9;
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.user-logout-button:hover {
+  background: #e2e8f0;
+
+  color: #1e293b;
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 520px) {
+
+  .user-point-page {
+    padding: 20px 12px;
+  }
+
+
+  .user-point-card {
+    padding: 25px 18px;
+  }
+
+
+  .number-display {
+    width: 125px;
+    height: 125px;
+  }
+
+
+  .result-number,
+  .rolling-number {
+    font-size: 45px;
+  }
+
+}

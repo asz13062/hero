@@ -1,0 +1,255 @@
+.grade-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  padding: 20px;
+}
+
+.grade-card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.grade-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #6366f1;
+  letter-spacing: 1px;
+}
+
+.grade-card h1 {
+  margin-top: 8px;
+  margin-bottom: 24px;
+  font-size: 28px;
+  color: #0f172a;
+}
+
+.student-info {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.student-info p {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.student-info span {
+  color: #64748b;
+}
+
+.student-info strong {
+  color: #0f172a;
+}
+
+.grade-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 24px 0;
+}
+
+.grade-card h2 {
+  font-size: 18px;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+.subject-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subject {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+.subject span {
+  color: #334155;
+  font-size: 14px;
+}
+
+.subject strong {
+  color: #4f46e5;
+  font-size: 18px;
+}
+
+.gpa-box {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #eff2ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gpa-box span {
+  color: #475569;
+}
+
+.gpa-box strong {
+  color: #4338ca;
+  font-size: 20px;
+}
+
+.grade-card button {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #0f172a;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.grade-card button:hover {
+  background: #1e293b;
+}
+
+/* ========================================
+   감지 게이지
+   ======================================== */
+
+.detection-info {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 18px;
+
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.detection-info span {
+  color: #475569;
+}
+
+.detection-info strong {
+  color: #4f46e5;
+  font-size: 16px;
+}
+
+
+/* 감지 게이지 바 */
+
+.detection-gauge {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 100;
+
+  width: 260px;
+}
+
+.detection-bar {
+  width: 100%;
+  height: 8px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  border-radius: 999px;
+  overflow: hidden;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.detection-bar-fill {
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #f59e0b,
+    #ef4444
+  );
+
+  border-radius: 999px;
+
+  transition: width 1s linear;
+}
+
+
+/* ========================================
+   감지 게이지에 따라 화면이 빨갛게 변함
+   ======================================== */
+
+.grade-page {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 빨간색 오버레이 */
+.grade-page::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 0;
+
+  background: rgb(255 0 0 / var(--detection-progress, 0%));
+
+  pointer-events: none;
+
+  transition: background-color 1s linear;
+}
+
+
+/* 카드가 빨간색 오버레이보다 위에 표시 */
+.grade-card {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* 감지 게이지도 위에 표시 */
+.detection-gauge,
+.detection-info {
+  z-index: 100;
+}
+
+
+/* ========================================
+   감지도가 높아질수록 게이지 색상 변화
+   ======================================== */
+
+.detection-info strong {
+  transition: color 0.5s ease;
+}
