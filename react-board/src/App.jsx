@@ -64,15 +64,6 @@ function App() {
           검색 결과가 없습니다.
         </p>
       )}
-
-      {posts.map((post) => (
-        <article className="post-card" key={post.id}>
-          { }
-
-          <h2>{post.title}</h2>
-          <p>{post.body}</p>
-        </article>
-      ))}
     </main>
   )
 }
