@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -5,9 +6,9 @@
 /* 브라우저 기본 여백 제거 */
 body {
   margin: 0;
-  background: #f1f5f9; /* 기본 배경색 */
+  background: #f1f5f9;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #0f172a; /* 기본 글자색 */
+  color: #0f172a;
 }
 
 /* 전체 게시판 영역 */
@@ -27,7 +28,7 @@ body {
   color: #0f172a;
 }
 
-/* 게시글 하나의 카드 */
+/* 게시글 카드 */
 .post-card {
   padding: 20px;
   margin-bottom: 16px;
@@ -35,9 +36,9 @@ body {
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 게시글 제목 */
 .post-card h2 {
   margin-top: 0;
   margin-bottom: 12px;
@@ -45,53 +46,29 @@ body {
   color: #1e293b;
 }
 
-/* 게시글 내용 */
 .post-card p {
   margin: 0;
   line-height: 1.6;
   color: #475569;
 }
 
-/* 게시글 카드에 마우스를 올렸을 때 */
 .post-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* 카드가 움직일 때 부드럽게 표시 */
-.post-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* 페이지를 부드러운 중앙 정렬로 표시 */
+/* 페이지 안내 문구 */
 .page > p {
   text-align: center;
   font-size: 18px;
   color: #64748b;
 }
 
-/* 작은 화면 대응 */
-@media (max-width: 700px) {
-  .page {
-    margin: 20px auto;
-    padding: 20px;
-  }
-
-  .page h1 {
-    font-size: 26px;
-  }
-
-  .post-card h2 {
-    font-size: 18px;
-  }
-}
-
-/* 검색 영역 추가 */
+/* 검색 영역 */
 .search-area {
   margin-bottom: 15px;
 }
 
-/* 검색 입력창 */
 .search-area input {
   width: 100%;
   padding: 14px 16px;
@@ -102,11 +79,9 @@ body {
   outline: none;
 }
 
-/* 검색창을 클릭했을 때 */
 .search-area input:focus {
   border-color: #6366f1;
-  box-shadow: 0 0 0 3px
-    rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 /* 검색 결과 개수 */
@@ -126,19 +101,17 @@ body {
   transform: scale(1.02);
 }
 
-/* 검색된 게시글 제목 크기 */
 .post-card-search h2 {
   font-size: 26px;
   color: #312e81;
 }
 
-/* 검색된 게시글 내용 크기 */
 .post-card-search p {
   font-size: 17px;
   line-height: 1.8;
 }
 
-/* 검색 결과가 없을 때 */
+/* 검색 결과 없음 */
 .no-result {
   margin-top: 30px;
   padding: 20px;
@@ -147,4 +120,374 @@ body {
   border-radius: 10px;
   color: #94a3b8;
   font-weight: bold;
+}
+
+/* =================================
+   타자 연습 버튼
+================================= */
+
+.typing-button {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 9px;
+  background: #4f46e5;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.typing-button:hover {
+  background: #3730a3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(79, 70, 229, 0.25);
+}
+
+.typing-button:active {
+  transform: translateY(0);
+}
+
+/* =================================
+   타자 연습 창 배경
+================================= */
+
+.typing-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(5px);
+  animation: typingFadeIn 0.2s ease;
+}
+
+/* =================================
+   타자 연습 창
+================================= */
+
+.typing-modal {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 35px;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+  animation: typingSlideUp 0.25s ease;
+}
+
+.typing-modal > h2 {
+  margin: 0 45px 14px 0;
+  color: #1e1b4b;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+/* 창 닫기 버튼 */
+.typing-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.typing-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* 게시글 정보 */
+.typing-post-title {
+  margin: 0 0 10px;
+  color: #4f46e5;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.typing-guide {
+  margin: 0 0 20px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =================================
+   연습할 문장
+================================= */
+
+.typing-target {
+  min-height: 120px;
+  margin-bottom: 18px;
+  padding: 22px;
+  border: 1px solid #c7d2fe;
+  border-radius: 14px;
+  background: #f8faff;
+  color: #475569;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 2;
+  letter-spacing: 0.3px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+/* 맞게 입력한 글자 */
+.typing-target .correct {
+  border-radius: 3px;
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* 틀리게 입력한 글자 */
+.typing-target .incorrect {
+  border-radius: 3px;
+  background: #fee2e2;
+  color: #dc2626;
+  text-decoration: underline;
+  text-decoration-color: #ef4444;
+}
+
+/* =================================
+   타자 입력창
+================================= */
+
+.typing-input {
+  display: block;
+  width: 100%;
+  min-height: 130px;
+  padding: 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 16px;
+  line-height: 1.8;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.typing-input::placeholder {
+  color: #94a3b8;
+}
+
+.typing-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.typing-input:disabled {
+  background: #f8fafc;
+  color: #64748b;
+  cursor: default;
+}
+
+/* =================================
+   진행률 및 통계
+================================= */
+
+.typing-progress {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.typing-progress span {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =================================
+   타자 연습 하단 버튼
+================================= */
+
+.typing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.typing-actions button {
+  flex: 1;
+  min-width: 130px;
+  padding: 13px 16px;
+  border: none;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.typing-actions button:hover {
+  transform: translateY(-1px);
+  background: #3730a3;
+}
+
+/* 두 번째 버튼은 회색으로 */
+.typing-actions button + button {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.typing-actions button + button:hover {
+  background: #cbd5e1;
+}
+
+/* =================================
+   타자 연습 완료 결과
+================================= */
+
+.typing-result {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid #bbf7d0;
+  border-radius: 16px;
+  background: #f0fdf4;
+  text-align: center;
+  animation: typingFadeIn 0.3s ease;
+}
+
+.typing-result h3 {
+  margin: 0 0 20px;
+  color: #15803d;
+  font-size: 24px;
+}
+
+.typing-result p {
+  margin: 10px 0;
+  color: #166534;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* =================================
+   애니메이션
+================================= */
+
+@keyframes typingFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes typingSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   작은 화면 대응
+================================= */
+
+@media (max-width: 700px) {
+  .page {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .page h1 {
+    font-size: 26px;
+  }
+
+  .post-card h2 {
+    font-size: 18px;
+  }
+
+  .post-card-search {
+    padding: 24px;
+    transform: none;
+  }
+
+  .post-card-search h2 {
+    font-size: 22px;
+  }
+
+  .typing-overlay {
+    padding: 12px;
+  }
+
+  .typing-modal {
+    padding: 26px 20px;
+    border-radius: 18px;
+    max-height: calc(100vh - 24px);
+  }
+
+  .typing-modal > h2 {
+    font-size: 25px;
+  }
+
+  .typing-target {
+    padding: 16px;
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
+  .typing-input {
+    min-height: 120px;
+    font-size: 15px;
+  }
+
+  .typing-progress {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .typing-actions {
+    flex-direction: column;
+  }
+
+  .typing-actions button {
+    width: 100%;
+  }
+}
+
+/* 모션 최소화 설정 지원 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
